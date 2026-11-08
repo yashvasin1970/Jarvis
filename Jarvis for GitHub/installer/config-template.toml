@@ -1,0 +1,80 @@
+# OpenJarvis settings for this PC (written by the Jarvis setup kit on {{DATE}}).
+#
+# The NVIDIA API key is NOT stored here. It lives in:
+#   {{ROOT}}\NVIDIA-API-KEY.txt
+# and is passed to Jarvis by {{ROOT}}\start-jarvis.ps1
+
+# --- Brain: NVIDIA's hosted models (free key from build.nvidia.com) ---------
+[engine]
+default = "nim"
+
+[intelligence]
+default_model = "nvidia/nemotron-3.5-super-vl-120b-a12b"
+temperature = 0.5
+max_tokens = 4096
+
+# --- Assistant behaviour ------------------------------------------------------
+[agent]
+default_agent = "orchestrator"   # the agent that can use tools
+max_turns = 15
+context_from_memory = true
+
+# --- Web chat server (only reachable from this PC) ---------------------------
+[server]
+host = "127.0.0.1"
+port = {{PORT}}
+agent = "orchestrator"
+model = "nvidia/nemotron-3.5-super-vl-120b-a12b"
+
+# --- Tools the assistant may use ---------------------------------------------
+# web_search, scheduled tasks, Desktop files (only the Desktop folder), opening apps /
+# folders / websites / settings, pictures, PC controls, reminders, memory, PDFs, photo
+# editing, weather, briefing, read-only Gmail + Calendar, screen, clipboard, web pages
+# and YouTube. Deliberately NOT enabled: shell_exec (would reach the whole PC).
+[tools]
+enabled = "web_search,think,calculator,schedule_task,list_scheduled_tasks,pause_scheduled_task,resume_scheduled_task,cancel_scheduled_task,list_allowed_directories,list_directory,list_directory_with_sizes,search_files,get_file_info,read_text_file,read_multiple_files,write_file,edit_file,create_directory,move_file,open_app,list_apps,open_folder,open_file,open_website,open_settings,create_image,volume,media_control,brightness,take_screenshot,lock_pc,battery_status,set_reminder,set_timer,list_reminders,cancel_reminder,memory_manage,user_profile_manage,pdf_extract,edit_photo,restyle_photo,weather_forecast,morning_briefing,check_email,read_email,calendar_events,look_at_screen,read_webpage,youtube_transcript,read_clipboard,write_clipboard"
+
+[tools.mcp]
+enabled = true
+servers = '''
+[{"name": "desktop-files",
+  "command": {{J_NODE}},
+  "args": [{{J_MCPFS}}, {{J_DESKTOP}}],
+  "exclude_tools": ["read_file", "read_media_file", "directory_tree"]},
+ {"name": "pc-tools",
+  "command": {{J_BASEPY}},
+  "args": ["-I", {{J_PCTOOLS}}]},
+ {"name": "image-tools",
+  "command": {{J_IMGPY}},
+  "args": ["-I", {{J_IMGTOOLS}}]},
+ {"name": "google-tools",
+  "command": {{J_GPY}},
+  "args": ["-I", {{J_GTOOLS}}]}]
+'''
+
+[security]
+# Built-in file tools (if ever enabled) are also limited to the Desktop.
+allowed_dirs = [{{J_DESKTOP}}]
+
+# --- Daily / scheduled tasks (run inside the web chat server) ----------------
+[scheduler]
+enabled = true
+poll_interval = 60
+
+# --- Voice: listening (mic button) and speaking (spoken replies) --------------
+[speech]
+backend = "faster-whisper"
+model = "small"
+device = "{{SPEECH_DEVICE}}"
+compute_type = "{{COMPUTE_TYPE}}"
+tts_backend = "kokoro"
+voice_id = "bm_george"      # British male. Others: af_heart, am_michael, bf_emma, ...
+voice_speed = 1.0
+
+# --- Privacy: usage analytics are off. Settings in the web chat can turn them on.
+[analytics]
+enabled = false
+choice_recorded = true
+
+[learning]
+enabled = false

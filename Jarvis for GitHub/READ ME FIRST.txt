@@ -1,0 +1,47 @@
+JARVIS - SETUP KIT
+==================
+
+Jarvis is a personal AI assistant for your Windows PC. You can chat with it
+or talk to it ("Hey Jarvis"), and it can search the web, make pictures, set
+reminders, read and edit files on your Desktop, look at your screen, control
+volume and brightness, summarise web pages and YouTube videos, and (if you
+set it up) read your Gmail and Google Calendar.
+
+WHAT YOU NEED
+  - Windows 10 or 11 (64-bit), about 12 GB of free disk space, and internet.
+  - A free NVIDIA account for Jarvis's "brain" (the setup shows you how).
+  - About 15-40 minutes. Most of it is downloading; you can do other things.
+
+HOW TO INSTALL
+  1. If you got a zip file: right-click it > "Extract All" > "Extract".
+  2. Open the extracted folder and double-click "Install Jarvis".
+       If Windows says "Windows protected your PC": click "More info",
+       then "Run anyway". If it asks "Do you want to run this file?": click Run.
+  3. A window shows the progress. Type your city when asked (for weather).
+  4. Near the end, an NVIDIA web page and Notepad open:
+       - sign in to NVIDIA (free) and click "Generate API Key",
+       - copy the key (it starts with nvapi-),
+       - paste it into Notepad, press Ctrl+S to save, close Notepad,
+       - press Enter in the setup window.
+  5. Jarvis opens. Done! The guide "How to use Jarvis" is in the new JARVIS
+     folder on your Desktop.
+
+  If setup stops with a message, fix what it says (usually the internet
+  connection) and double-click "Install Jarvis" again: it carries on.
+
+PRIVACY
+  - Jarvis runs on your PC; your chats, memories and settings stay on it.
+  - What you ask is sent to NVIDIA's AI to be answered (a screenshot or an
+    email only when you ask about it).
+  - Jarvis can only see and change files in your Desktop folder.
+  - This kit contains nothing from the person who sent it to you: no keys,
+    passwords, chats or settings.
+
+REMOVING IT
+  Double-click "Uninstall Jarvis" in the JARVIS folder on your Desktop.
+
+CREDITS
+  Built on OpenJarvis (open source, Apache 2.0 licence):
+  https://github.com/open-jarvis/OpenJarvis
+  The "Hey Jarvis" wake word uses openWakeWord's pre-trained model, which is
+  licensed for personal, non-commercial use only (CC BY-NC-SA 4.0).

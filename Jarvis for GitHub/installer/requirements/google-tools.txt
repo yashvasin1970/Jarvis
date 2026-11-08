@@ -1,0 +1,9 @@
+# Exact versions from the working Jarvis on the PC this kit was made on (2026-11-07).
+click==8.5.1
+icalendar==7.3.0
+python-dateutil==2.9.0.post0
+recurring-ical-events==3.8.2
+six==1.17.0
+typing-extensions==4.16.0
+tzdata==2026.6
+x-wr-timezone==2.0.1

@@ -1,0 +1,130 @@
+JARVIS - QUICK GUIDE
+====================
+
+START / OPEN
+  Jarvis starts by itself in the background (no window) about 20 seconds
+  after you sign in to Windows. To chat, double-click the "Jarvis" icon on
+  your Desktop (or in this folder). Jarvis opens in its own app window, like
+  a normal program. You can also use http://127.0.0.1:{{PORT}} in any browser.
+  If Jarvis isn't running, the "Jarvis" icon starts it (takes about a minute;
+  a few minutes if it is repairing itself after an update).
+
+  Jarvis always opens on a new, empty chat. Your earlier chats are in the
+  list on the left; click one to carry on with it.
+
+  Pin it: right-click the "Jarvis" icon on your Desktop > "Show more options"
+  > "Pin to taskbar" and/or "Pin to Start".
+
+  The first time the chat opens it may show a "Win a Mac mini" box. Close it
+  with the X in its top-right corner. (Usage analytics are off; you can turn
+  them on in Settings if you want to share anonymous usage numbers.)
+
+  Jarvis only runs while your PC is on and you are signed in.
+  To turn off starting at sign-in: open the Windows "Task Scheduler" app,
+  click "Task Scheduler Library", right-click "OpenJarvis", choose Disable.
+
+WHAT YOU CAN ASK
+  Web search ......... "What's the latest news about space?"
+  Your Desktop files . "What files are on my Desktop?"
+                       "Read notes.txt on my Desktop and summarise it."
+                       "Make a folder called Trips on my Desktop and save my packing list in it."
+  Daily tasks ........ "Every day at 8 AM, search for the top 3 tech news stories and summarise them."
+                       "Show my scheduled tasks."   "Cancel the tech news task."
+     Daily tasks run only while Jarvis is running. Each run's answer is saved
+     in the "Scheduled task results" folder here.
+  Pictures ........... "Make a picture of a sunset over the sea, oil painting style."
+                       "Create a wide wallpaper of misty mountains."  (or "tall" for a phone)
+     Made by NVIDIA's free FLUX image model (same key), about 10-20 seconds;
+     they open on screen and are saved in the "Images" folder on your Desktop.
+  Websites ........... "Build a one-page website about my club, save it on my Desktop
+                        as club.html and open it."  (saved on your PC, not put online)
+  Reminders .......... "Remind me at 5:30 pm to call Mom."   "Remind me in 20 minutes to check the oven."
+                       "Wake me up every weekday at 7."   "What reminders do I have?"
+  Timers ............. "Set a timer for 10 minutes."
+     A "Jarvis" notification pops up and the voice bar says it out loud.
+     They only go off while Jarvis is running.
+  Sound & music ...... "Volume to 30."  "Mute."  "Pause the music."  "Next song."
+  Screen & PC ........ "Brightness to 50."  "Take a screenshot."  "Lock my PC."  "How much battery is left?"
+  Memory ............. "Remember that my exam is on the 20th."  "What do you remember about me?"
+  PDFs ............... "Summarise the PDF called notes on my Desktop."  (PDFs on the Desktop only)
+  Photo editing ...... "Remove the background from the photo called me.jpg on my Desktop."
+                       "Make that photo black and white / a pencil sketch / brighter."
+                       "Turn my photo into an anime / oil painting picture."
+     Edits save a NEW copy in Desktop\Images; the original is never changed.
+  Briefing ........... "Morning briefing" / "Brief me" / "What's my day like?"
+                       Weather for {{CITY}}, your calendar and email (once set up),
+                       today's reminders and top news.
+  Weather ............ "Will it rain tomorrow?"  "Weather in London this week?"
+  Your screen ........ "What's on my screen?"  "Explain this error."
+                       Or click the eye icon on the right of the chat box (next to the
+                       microphone). Type a question first, or just click it. The Jarvis
+                       window steps aside for a split second so Jarvis can see behind it.
+                       (The screenshot goes to the NVIDIA AI to be understood.)
+  What you copied .... copy some text, then: "Summarise what I copied."  "Translate it to Hindi."
+                       "Fix the grammar and copy it back." -> then just paste (Ctrl+V).
+  Links & videos ..... "Summarise this article: https://..."  "What's this YouTube video about? <link>"
+  Email & calendar ... "Any important emails today?"  "What's on my calendar tomorrow?"
+                       (read-only) Needs the one-time setup below.
+
+  Jarvis can only see and change files inside your Desktop folder. It can't
+  touch anything else on the PC.
+
+"HEY JARVIS" VOICE BAR
+  Say "Hey Jarvis" (plain "Jarvis" often works too). A small bar pops up at
+  the bottom of the screen. Say what you want, e.g. "open Spotify",
+  "open my Downloads folder", "what's the weather?". Jarvis answers out loud,
+  and for a few seconds after you can just keep talking. While he speaks, the
+  bar steps aside for a glowing golden orb; click the orb to stop him talking.
+  Move the bar: press on it (not on its buttons or the typing box) and drag it
+  anywhere; it remembers the spot. Double-click it to put it back.
+  HOLD-TO-TALK (best in a noisy room): hold the RIGHT Ctrl key, say your
+  request, let go. No "Jarvis" needed.
+  You can also type in the bar's box and press Enter.
+  Privacy: the wake word is detected on this PC only; nothing is sent
+  anywhere until you say it.
+  If the microphone doesn't react: Windows Settings > Privacy & security >
+  Microphone > allow desktop apps. Earphones with a mic help in noisy rooms.
+
+TALK IN THE CHAT WINDOW
+  Settings (left sidebar) > Speech > switch on "Speech-to-Text",
+  "Text-to-Speech" and "Speak replies automatically". Then use the microphone
+  button in the message box. The first spoken reply after installing can take
+  a few minutes (the voice downloads once, about 1 GB).
+  While Jarvis speaks, a glowing golden orb fills the chat (the text and message
+  box come back when he finishes). Click anywhere or press Esc to stop him.
+
+GMAIL + GOOGLE CALENDAR (optional, one time, about 5 minutes, read-only)
+  1. App password: open https://myaccount.google.com/apppasswords and sign in.
+     (If it isn't available, first turn on 2-Step Verification.)
+     Type the name Jarvis, click Create, keep the 16-letter password on screen.
+  2. Calendar link: https://calendar.google.com > gear icon > Settings > your
+     calendar (left) > "Integrate calendar" > "Secret address in iCal format".
+  3. Saving them: copy ONE thing, then double-click the shortcut
+     "Save Google setting (copy it first)" in this JARVIS folder. Do it three
+     times: the calendar secret address, the 16-letter app password, and your
+     Gmail address. A message tells you what was saved.
+  Keep these private: anyone with them can read your mail.
+
+THE BRAIN (NVIDIA)
+  Your free NVIDIA key is in:  {{ROOT}}\NVIDIA-API-KEY.txt
+  To change it: open that file in Notepad, replace the key, press Ctrl+S,
+  then double-click "Restart Jarvis". Get a key at https://build.nvidia.com
+  You can switch the AI model from the menu at the top-left of the chat.
+  Jarvis needs the internet for its brain.
+
+SETTINGS (city, etc.)
+  {{ROOT}}\JARVIS-SETTINGS.txt  - change, save, then "Restart Jarvis".
+
+IF SOMETHING GOES WRONG
+  Double-click "Restart Jarvis". If it can't start, a message says why.
+  Logs: {{ROOT}}\logs
+  "Stop Jarvis" turns it off. "Uninstall Jarvis" removes it.
+
+PERSONALITY
+  Jarvis has a dry, light sense of humour. Say "be serious" in a chat to
+  switch it off for that conversation. To change it for good, edit
+  {{HOME}}\SOUL.md in Notepad, save, then "Restart Jarvis".
+
+WHERE THINGS ARE
+  Program ....... {{ROOT}}
+  Settings ...... {{HOME}}\config.toml
